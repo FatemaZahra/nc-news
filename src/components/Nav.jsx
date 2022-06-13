@@ -6,7 +6,16 @@ const Nav = () => {
       <Link to="/" className="Nav">
         Home
       </Link>
-      <p className="Nav">Topic Names Placeholder</p>
+      <Link to={`/articles/coding`} className="Nav">
+        Coding
+      </Link>
+      <Link to={`/articles/football`} className="Nav">
+        FootBall
+      </Link>
+      <Link to={`/articles/cooking`} className="Nav">
+        Cooking
+      </Link>
+
       <p className="Nav">Sign-in Placeholder</p>
     </nav>
   );
