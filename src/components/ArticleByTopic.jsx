@@ -1,18 +1,18 @@
-import { useState, useEffect } from "react";
-
+import { useEffect, useState } from "react";
 import { getArticles } from "../utils/api";
 import ArticleCard from "./ArticleCard";
+import { useParams } from "react-router-dom";
 
-const Home = () => {
-  const [currentArticles, setCurrentArticles] = useState([{}]);
+const ArticleByTopic = () => {
+  const { topic } = useParams();
+  const [currentArticles, setCurrentArticles] = useState();
   const [isLoading, setIsLoading] = useState(true);
-
   useEffect(() => {
-    getArticles().then((articles) => {
+    getArticles(topic).then((articles) => {
       setCurrentArticles(articles);
       setIsLoading(false);
     });
-  }, []);
+  }, [topic]);
 
   if (isLoading) {
     return <p>Loading...</p>;
@@ -32,4 +32,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default ArticleByTopic;
