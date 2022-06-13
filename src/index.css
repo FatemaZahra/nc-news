@@ -22,3 +22,10 @@ code {
 .Nav {
   color: brown;
 }
+.ArticleCard {
+  background-color: antiquewhite;
+}
+.Nav {
+  display: inline;
+  padding: 8px 16px;
+}
