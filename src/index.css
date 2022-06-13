@@ -22,10 +22,15 @@ code {
 }
 .header {
   color: #eb1b23;
+  margin: 5px;
+  padding: 5px;
 }
 
 .Nav {
   color: #eb1b23;
+  margin: 5px;
+  display: inline;
+  padding: 8px 16px;
 }
 .ArticleCard {
   border: 3px solid black;
@@ -35,8 +40,4 @@ code {
 .ArticleCard:hover {
   border: 3px solid #eb1b23;
   color: #eb1b23;
-}
-.Nav {
-  display: inline;
-  padding: 8px 16px;
 }
