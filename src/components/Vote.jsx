@@ -16,10 +16,10 @@ const Vote = ({ votes, article_id, author }) => {
   };
 
   const handleClickDownVote = () => {
-    setVoteChange((currVotes) => currVotes + 1);
+    setVoteChange((currVotes) => currVotes - 1);
     patchVotestoArticle(article_id, -1).catch((err) => {
       console.dir(err);
-      setVoteChange((currVotes) => currVotes - 1);
+      setVoteChange((currVotes) => currVotes + 1);
       setError(err.response.data);
     });
   };
@@ -30,19 +30,25 @@ const Vote = ({ votes, article_id, author }) => {
 
   return (
     <>
-      <p>Votes: {votes}</p>
+      <p>Votes: {votes + voteChange}</p>
       <button
+        className="button"
         onClick={handleClickUpVote}
         disabled={voteChange > 0 || user.username === author}
       >
+        <span className="material-symbols-outlined">thumb_up</span>
         {user.username === author
           ? `Hello ${author}, have a lovely day`
-          : `Upvote to article by ${author}`}
+          : `Upvote article by ${author}`}
       </button>
       <button
+        className="button"
         onClick={handleClickDownVote}
-        disabled={voteChange > 0 || user.username === author || votes <= 0}
+        disabled={
+          voteChange > 0 || user.username === author || votes + voteChange <= 0
+        }
       >
+        <span className="material-symbols-outlined">thumb_down</span>
         {user.username === author
           ? `Hello ${author}, have a lovely day`
           : `Downvote article by ${author}`}
