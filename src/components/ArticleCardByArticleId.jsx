@@ -1,3 +1,5 @@
+import Vote from "./Vote";
+
 const ArticleCardByArticleId = ({ currentArticle }) => {
   return (
     <div className="ArticleCard">
@@ -6,9 +8,14 @@ const ArticleCardByArticleId = ({ currentArticle }) => {
       <h4>{currentArticle.author}</h4>
       <p>{currentArticle.body}</p>
       <button className="button">Add Comments</button>
-      <button className="button">Vote</button>
+      <Vote
+        votes={currentArticle.votes}
+        author={currentArticle.author}
+        article_id={currentArticle.article_id}
+      />
       <button className="button">More articles on topic</button>
     </div>
   );
 };
+
 export default ArticleCardByArticleId;
