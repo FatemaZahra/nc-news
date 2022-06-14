@@ -7,12 +7,21 @@ const ArticleByArticleId = () => {
   const { article_id } = useParams();
   const [currentArticle, setCurrentArticle] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setError] = useState(null);
   useEffect(() => {
-    getArticleById(article_id).then((article) => {
-      setCurrentArticle(article);
-      setIsLoading(false);
-    });
+    getArticleById(article_id)
+      .then((article) => {
+        setCurrentArticle(article);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError(err.response.data);
+      });
   }, [article_id]);
+
+  if (isError) {
+    return <p>{isError.msg}</p>;
+  }
 
   if (isLoading) {
     return <p>Loading...</p>;
