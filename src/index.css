@@ -39,7 +39,6 @@ code {
 }
 .ArticleCard:hover {
   border: 3px solid #eb1b23;
-  color: #eb1b23;
 }
 .button {
   padding: 8px 16px;
@@ -48,4 +47,11 @@ code {
 .button:hover {
   color: #eb1b23;
   border: 1px solid #eb1b23;
+}
+.link {
+  text-decoration: none;
+  color: black;
+}
+.link:hover {
+  color: #eb1b23;
 }
