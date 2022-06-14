@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 
 const ArticleByTopic = () => {
   const { topic } = useParams();
-  const [currentArticles, setCurrentArticles] = useState();
+  const [currentArticles, setCurrentArticles] = useState([{}]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     getArticles(topic).then((articles) => {

@@ -6,13 +6,13 @@ const Nav = () => {
       <Link to="/" className="Nav">
         Home
       </Link>
-      <Link to={`/articles/coding`} className="Nav">
+      <Link to={`/topics/coding`} className="Nav">
         Coding
       </Link>
-      <Link to={`/articles/football`} className="Nav">
+      <Link to={`/topics/football`} className="Nav">
         FootBall
       </Link>
-      <Link to={`/articles/cooking`} className="Nav">
+      <Link to={`/topics/cooking`} className="Nav">
         Cooking
       </Link>
 
