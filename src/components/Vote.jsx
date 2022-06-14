@@ -18,7 +18,6 @@ const Vote = ({ votes, article_id, author }) => {
   const handleClickDownVote = () => {
     setVoteChange((currVotes) => currVotes - 1);
     patchVotestoArticle(article_id, -1).catch((err) => {
-      console.dir(err);
       setVoteChange((currVotes) => currVotes + 1);
       setError(err.response.data);
     });
