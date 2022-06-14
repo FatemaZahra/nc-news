@@ -5,18 +5,28 @@ import Home from "./components/Home";
 import { Route, Routes } from "react-router-dom";
 import ArticleByTopic from "./components/ArticleByTopic";
 import ArticleByArticleId from "./components/ArticleByArticleId";
+import Users from "./components/Users";
+import { UserContext } from "./context/User";
+import { useState } from "react";
 
 function App() {
+  const [user, setUser] = useState({ username: "" });
   return (
-    <div className="App">
-      <Header />
-      <Nav />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/topics/:topic" element={<ArticleByTopic />} />
-        <Route path="/articles/:article_id" element={<ArticleByArticleId />} />
-      </Routes>
-    </div>
+    <UserContext.Provider value={{ user, setUser }}>
+      <div className="App">
+        <Header />
+        <Nav />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/topics/:topic" element={<ArticleByTopic />} />
+          <Route
+            path="/articles/:article_id"
+            element={<ArticleByArticleId />}
+          />
+          <Route path="/users" element={<Users />} />
+        </Routes>
+      </div>
+    </UserContext.Provider>
   );
 }
 

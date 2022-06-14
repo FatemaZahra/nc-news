@@ -17,3 +17,18 @@ export const getArticleById = (article_id) => {
     return data.article;
   });
 };
+
+export const patchVotestoArticle = (article_id, inc_votes) => {
+  return articleApi
+    .patch(`/articles/${article_id}`, { inc_votes })
+    .then(({ data }) => {
+      return data.article;
+    });
+};
+
+//users
+export const getUsers = () => {
+  return articleApi.get("/users").then(({ data }) => {
+    return data.users;
+  });
+};

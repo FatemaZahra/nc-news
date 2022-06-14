@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../context/User";
 
 const Nav = () => {
+  const { user } = useContext(UserContext);
   return (
     <nav>
-      <Link to="/" className="Nav">
+      <Link to="/" className="Nav material-symbols-outlined">
         Home
       </Link>
       <Link to={`/topics/coding`} className="Nav">
@@ -15,8 +18,10 @@ const Nav = () => {
       <Link to={`/topics/cooking`} className="Nav">
         Cooking
       </Link>
-
-      <p className="Nav">Sign-in Placeholder</p>
+      <Link to={`/users`} className="Nav material-symbols-outlined">
+        person_filled
+      </Link>
+      <p className="Nav">Signed in as: {user.username}</p>
     </nav>
   );
 };
