@@ -19,12 +19,10 @@ const PostComment = ({ setComments }) => {
       .then((postedComment) => {
         setIsPosted(true);
         setComments((currComments) => {
-          console.log(postedComment, "postedcomment");
           return [postedComment, ...currComments];
         });
       })
       .catch((err) => {
-        console.dir(err);
         setError(err.response.data);
       });
     setAddedComment({ body: "", username: "" });
@@ -39,23 +37,15 @@ const PostComment = ({ setComments }) => {
   if (isPosted) {
     return <p>Thanks! Your comment has already been posted</p>;
   }
+
   if (isError) {
     return <p>An Error Occured! Please try again later</p>;
   }
-  console.log(user.username, "user.username");
+
   if (user.username !== "") {
     return (
       <>
         <form onSubmit={handleSubmit}>
-          <TextField
-            id="outlined-name"
-            label="Insert your name here"
-            name="username"
-            value={user.username}
-            onChange={handleInput}
-            disabled={article.author === user.username}
-            required
-          />
           <TextField
             id="outlined-name"
             label="Insert Comment here"
