@@ -1,6 +1,6 @@
 import Vote from "./Vote";
 import { Button } from "@mui/material";
-import { Link } from "react-router-dom";
+import ViewComments from "./ViewComments";
 
 const ArticleCardByArticleId = ({ currentArticle }) => {
   return (
@@ -12,16 +12,7 @@ const ArticleCardByArticleId = ({ currentArticle }) => {
       <h2>{currentArticle.title}</h2>
       <h4>{currentArticle.author}</h4>
       <p>{currentArticle.body}</p>
-
-      <Link
-        to={`/articles/${currentArticle.article_id}/comments`}
-        className="link"
-      >
-        <Button>
-          <span className="material-symbols-outlined">comment</span>View all
-          comments
-        </Button>
-      </Link>
+      <ViewComments article={currentArticle} />
 
       <Button>
         <span className="material-symbols-outlined">add_comment</span>Add
