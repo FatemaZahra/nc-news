@@ -10,13 +10,16 @@ const Nav = () => {
         Home
       </Link>
       <Link to={`/topics/coding`} className="Nav">
-        Coding
+        <span className="material-symbols-outlined">code</span>
+        <span className="hidden-mobile">Coding</span>
       </Link>
       <Link to={`/topics/football`} className="Nav">
-        FootBall
+        <span className="material-symbols-outlined">sports_soccer</span>
+        <span className="hidden-mobile">FootBall</span>
       </Link>
       <Link to={`/topics/cooking`} className="Nav">
-        Cooking
+        <span className="material-symbols-outlined">cooking</span>
+        <span className="hidden-mobile">Cooking</span>
       </Link>
       <Link to={`/users`} className="Nav material-symbols-outlined">
         person_filled

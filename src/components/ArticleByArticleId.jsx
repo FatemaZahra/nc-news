@@ -8,6 +8,7 @@ const ArticleByArticleId = () => {
   const [currentArticle, setCurrentArticle] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setError] = useState(null);
+
   useEffect(() => {
     getArticleById(article_id)
       .then((article) => {
