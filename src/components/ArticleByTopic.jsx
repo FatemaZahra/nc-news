@@ -15,7 +15,11 @@ const ArticleByTopic = () => {
   }, [topic]);
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return (
+      <p>
+        <span class="material-symbols-outlined">hourglass_top</span>Loading...
+      </p>
+    );
   }
   return (
     <>

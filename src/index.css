@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "Noticia Text", serif;
 }
 
 .App {
@@ -22,8 +23,12 @@ code {
 }
 .header {
   color: #eb1b23;
-  margin: 5px;
-  padding: 5px;
+  margin: 1rem;
+  padding: 1rem;
+  display: inline-flex;
+  -webkit-box-align: center;
+  align-items: center;
+  min-height: 70px;
 }
 
 .Nav {
@@ -36,6 +41,7 @@ code {
   border: 3px solid black;
   margin: 10px;
   padding: 8px 8px;
+  justify-content: space-evenly;
 }
 .ArticleCard:hover {
   border: 3px solid #eb1b23;
@@ -58,4 +64,24 @@ code {
 .userCard {
   margin: 10px;
   padding: 8px 8px;
+}
+.CommentsCard {
+  border: 3px solid black;
+  margin: 10px;
+  padding: 8px 8px;
+}
+.CommentsCard:hover {
+  border: 3px solid #eb1b23;
+}
+.date {
+  font-size: 0.75rem;
+  color: rgb(88, 88, 88);
+}
+#comment {
+  margin: 1rem;
+}
+@media (max-width: 767px) {
+  .hidden-mobile {
+    display: none;
+  }
 }
