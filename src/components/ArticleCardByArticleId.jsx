@@ -14,10 +14,6 @@ const ArticleCardByArticleId = ({ currentArticle }) => {
       <p>{currentArticle.body}</p>
       <ViewComments article={currentArticle} />
 
-      <Button>
-        <span className="material-symbols-outlined">add_comment</span>Add
-        Comments
-      </Button>
       <Vote
         votes={currentArticle.votes}
         author={currentArticle.author}

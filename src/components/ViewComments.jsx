@@ -3,6 +3,7 @@ import { getCommentsOnArticle } from "../utils/api";
 import { useParams } from "react-router-dom";
 import CommentsCard from "./CommentsCard";
 import { Button } from "@mui/material";
+import PostComment from "./PostComment";
 
 const ViewComments = ({ article }) => {
   const { article_id } = useParams();
@@ -43,6 +44,7 @@ const ViewComments = ({ article }) => {
             </div>
           );
         })}
+        <PostComment setComments={setComments} />
       </ul>
     </>
   );
