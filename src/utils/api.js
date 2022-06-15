@@ -32,6 +32,18 @@ export const getCommentsOnArticle = (article_id) => {
   });
 };
 
+export const postCommentOnArticle = (article_id, body, username) => {
+  return articleApi
+    .post(`/articles/${article_id}/comments`, {
+      body,
+      username,
+    })
+    .then(({ data }) => {
+      console.log(data, "in api");
+      return data.comment;
+    });
+};
+
 //users
 export const getUsers = () => {
   return articleApi.get("/users").then(({ data }) => {

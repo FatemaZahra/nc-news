@@ -43,8 +43,8 @@ code {
 }
 .articles {
   display: grid;
-  grid-template-columns: auto auto auto;
-  grid-template-rows: min-content auto auto;
+  /* grid-template-columns: auto auto auto;
+  grid-template-rows: min-content auto auto; */
   padding: 10px;
   grid-gap: 6px;
   justify-items: start;
@@ -101,7 +101,7 @@ code {
   }
 }
 
-@media only screen and (min-width: 600px) {
+/* @media only screen and (min-width: 600px) {
   .App {
     grid-template-columns: 25% 75%;
     grid-template-rows: min-content auto;
@@ -110,4 +110,4 @@ code {
       "Nav"
       "articles";
   }
-}
+} */
