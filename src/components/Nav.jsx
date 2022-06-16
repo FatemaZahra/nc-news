@@ -23,8 +23,9 @@ const Nav = () => {
         <span className="hidden-mobile">Cooking</span>
       </Link>
       <Link to={`/users`} className="Nav material-symbols-outlined">
-        person_filled
+        person_filled<span className="hidden-mobile">Users</span>
       </Link>
+      <p className="Nav">Signed in as: {user.username}</p>
       <Dropdown>
         <Dropdown.Toggle
           variant="success"
@@ -67,7 +68,6 @@ const Nav = () => {
           </Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
-      <p className="Nav">Signed in as: {user.username}</p>
     </nav>
   );
 };
