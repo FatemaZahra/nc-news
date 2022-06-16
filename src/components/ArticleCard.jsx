@@ -14,7 +14,13 @@ const ArticleCard = ({ article }) => {
         </h2>
         <h1>{article.title}</h1>
         <h3>{article.author}</h3>
+        <span>
+          <time className="date">{article.created_at.slice(0, 10)}, </time>
+          <time className="date">{article.created_at.slice(11, 16)}</time>
+        </span>
         <p>{article.body}</p>
+        <h5>Comment count:{article.comment_count}</h5>
+        <h5>Vote count:{article.votes}</h5>
         <Button
           className="button"
           onClick={() => {

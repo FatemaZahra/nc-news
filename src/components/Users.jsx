@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from "react";
+import { Button } from "@mui/material";
 import { getUsers } from "../utils/api";
 import { UserContext } from "../context/User";
 
@@ -25,14 +26,14 @@ const Users = () => {
           <li className="userCard" key={user.username}>
             <h2>{user.username}</h2>
 
-            <button
+            <Button
               className="button"
               onClick={() => {
                 setUser(user);
               }}
             >
               Select this user
-            </button>
+            </Button>
           </li>
         );
       })}

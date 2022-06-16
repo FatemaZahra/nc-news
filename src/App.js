@@ -2,11 +2,12 @@ import "./index.css";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
 import Home from "./components/Home";
-
+import SortArticle from "./components/SortArticle";
 import { Route, Routes } from "react-router-dom";
 import ArticleByTopic from "./components/ArticleByTopic";
 import ArticleByArticleId from "./components/ArticleByArticleId";
 import Users from "./components/Users";
+import OrderArticles from "./components/OrderArticles";
 import { UserContext } from "./context/User";
 import { ArticleContext } from "./context/Article";
 import { useState } from "react";
@@ -35,6 +36,11 @@ function App() {
               element={<ArticleByArticleId />}
             />
             <Route path="/users" element={<Users />} />
+            <Route
+              path="/articles/sort_by/:sort_by"
+              element={<SortArticle />}
+            />
+            <Route path="/articles/order/:order" element={<OrderArticles />} />
           </Routes>
         </div>
       </ArticleContext.Provider>

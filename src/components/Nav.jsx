@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../context/User";
+import { Dropdown } from "react-bootstrap";
 
 const Nav = () => {
   const { user } = useContext(UserContext);
@@ -24,6 +25,47 @@ const Nav = () => {
       <Link to={`/users`} className="Nav material-symbols-outlined">
         person_filled
       </Link>
+      <Dropdown>
+        <Dropdown.Toggle
+          variant="success"
+          id="dropdown-basic"
+          className="dropdown Nav"
+        >
+          <span class="material-symbols-outlined">expand_more</span> Filter
+        </Dropdown.Toggle>
+        <Dropdown.Menu>
+          <Dropdown.Item
+            href="/articles/sort_by/created_at"
+            className="dropdown-content Nav"
+          >
+            By Date
+          </Dropdown.Item>
+          <Dropdown.Item
+            href="/articles/sort_by/comment_count"
+            className="dropdown-content Nav"
+          >
+            By Comment Count
+          </Dropdown.Item>
+          <Dropdown.Item
+            href="/articles/sort_by/votes"
+            className="dropdown-content Nav"
+          >
+            By Votes
+          </Dropdown.Item>
+          <Dropdown.Item
+            href="/articles/order/ASC"
+            className="dropdown-content Nav"
+          >
+            In Ascending Order
+          </Dropdown.Item>
+          <Dropdown.Item
+            href="/articles/order/DESC"
+            className="dropdown-content Nav"
+          >
+            In Descending Order
+          </Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
       <p className="Nav">Signed in as: {user.username}</p>
     </nav>
   );
