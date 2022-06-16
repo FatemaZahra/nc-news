@@ -7,13 +7,22 @@ const OrderArticle = () => {
   const { order } = useParams();
   const [currentArticles, setCurrentArticles] = useState([{}]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setError] = useState(null);
 
   useEffect(() => {
-    getOrderedArticles(order).then((articles) => {
-      setCurrentArticles(articles);
-      setIsLoading(false);
-    });
+    getOrderedArticles(order)
+      .then((articles) => {
+        setCurrentArticles(articles);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError(err.response.data);
+      });
   }, [order]);
+
+  if (isError) {
+    return <p>An error occured! {isError.msg}</p>;
+  }
 
   if (isLoading) {
     return (

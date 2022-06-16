@@ -7,13 +7,22 @@ const Users = () => {
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { setUser } = useContext(UserContext);
+  const [isError, setError] = useState(null);
 
   useEffect(() => {
-    getUsers().then((users) => {
-      setUsers(users);
-      setIsLoading(false);
-    });
+    getUsers()
+      .then((users) => {
+        setUsers(users);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError(err.response.data);
+      });
   }, []);
+
+  if (isError) {
+    return <p>An error occured! {isError.msg}</p>;
+  }
 
   if (isLoading) {
     return <p>Loading...</p>;
