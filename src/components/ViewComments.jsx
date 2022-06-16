@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import CommentsCard from "./CommentsCard";
 import { Button } from "@mui/material";
 import PostComment from "./PostComment";
+import DeleteComment from "./DeleteComment";
 
 const ViewComments = ({ article }) => {
   const { article_id } = useParams();
@@ -41,6 +42,7 @@ const ViewComments = ({ article }) => {
           return (
             <div key={comment.comment_id}>
               <CommentsCard comment={comment} />
+              <DeleteComment comment={comment} setComments={setComments} />
             </div>
           );
         })}

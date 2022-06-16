@@ -56,6 +56,10 @@ export const postCommentOnArticle = (article_id, body, username) => {
     });
 };
 
+export const deleteComment = (comment_id) => {
+  return articleApi.delete(`/comments/${comment_id}`);
+};
+
 //users
 export const getUsers = () => {
   return articleApi.get("/users").then(({ data }) => {
