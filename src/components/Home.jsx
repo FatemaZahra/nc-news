@@ -6,13 +6,22 @@ import ArticleCard from "./ArticleCard";
 const Home = () => {
   const [currentArticles, setCurrentArticles] = useState([{}]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setError] = useState(null);
 
   useEffect(() => {
-    getArticles().then((articles) => {
-      setCurrentArticles(articles);
-      setIsLoading(false);
-    });
+    getArticles()
+      .then((articles) => {
+        setCurrentArticles(articles);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError(err.response.data);
+      });
   }, []);
+
+  if (isError) {
+    return <p>{isError.msg}</p>;
+  }
 
   if (isLoading) {
     return <p>Loading...</p>;

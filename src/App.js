@@ -11,7 +11,6 @@ import OrderArticles from "./components/OrderArticles";
 import { UserContext } from "./context/User";
 import { ArticleContext } from "./context/Article";
 import { useState } from "react";
-import DeleteComment from "./components/DeleteComment";
 
 function App() {
   const [user, setUser] = useState({ username: "" });
@@ -42,7 +41,6 @@ function App() {
               element={<SortArticle />}
             />
             <Route path="/articles/order/:order" element={<OrderArticles />} />
-            <Route path="/comments/:comment_id" element={<DeleteComment />} />
           </Routes>
         </div>
       </ArticleContext.Provider>

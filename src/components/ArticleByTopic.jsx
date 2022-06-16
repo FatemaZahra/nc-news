@@ -7,12 +7,22 @@ const ArticleByTopic = () => {
   const { topic } = useParams();
   const [currentArticles, setCurrentArticles] = useState([{}]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setError] = useState(null);
+
   useEffect(() => {
-    getArticles(topic).then((articles) => {
-      setCurrentArticles(articles);
-      setIsLoading(false);
-    });
+    getArticles(topic)
+      .then((articles) => {
+        setCurrentArticles(articles);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError(err.response.data);
+      });
   }, [topic]);
+
+  if (isError) {
+    return <p>{isError.msg}</p>;
+  }
 
   if (isLoading) {
     return (
