@@ -40,6 +40,8 @@ code {
   margin: 5px;
   display: inline;
   padding: 8px 16px;
+  font-size: medium;
+  text-decoration: none;
 }
 .articles {
   display: grid;
@@ -127,4 +129,11 @@ code {
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+#dropdown-basic {
+  background-color: #f9f9f9;
+}
+#dropdown-basic:hover {
+  border: 3px solid #eb1b23;
 }
