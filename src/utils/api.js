@@ -10,6 +10,18 @@ export const getArticles = (topic) => {
     return data.articles;
   });
 };
+export const getSortedArticles = (sort_by) => {
+  return articleApi
+    .get("/articles", { params: { sort_by } })
+    .then(({ data }) => {
+      return data.articles;
+    });
+};
+export const getOrderedArticles = (order) => {
+  return articleApi.get("/articles", { params: { order } }).then(({ data }) => {
+    return data.articles;
+  });
+};
 
 export const getArticleById = (article_id) => {
   return articleApi.get(`/articles/${article_id}`).then(({ data }) => {

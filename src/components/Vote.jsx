@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { UserContext } from "../context/User";
 import { patchVotestoArticle } from "../utils/api";
+import { Button } from "@mui/material";
 
 const Vote = ({ votes, article_id, author }) => {
   const [voteChange, setVoteChange] = useState(0);
@@ -29,8 +30,8 @@ const Vote = ({ votes, article_id, author }) => {
 
   return (
     <>
-      <p>Votes: {votes + voteChange}</p>
-      <button
+      <p>Votes on article: {votes + voteChange}</p>
+      <Button
         className="button"
         onClick={handleClickUpVote}
         disabled={voteChange > 0 || user.username === author}
@@ -39,8 +40,8 @@ const Vote = ({ votes, article_id, author }) => {
         {user.username === author
           ? `Hello ${author}, have a lovely day`
           : `Upvote article by ${author}`}
-      </button>
-      <button
+      </Button>
+      <Button
         className="button"
         onClick={handleClickDownVote}
         disabled={
@@ -51,7 +52,7 @@ const Vote = ({ votes, article_id, author }) => {
         {user.username === author
           ? `Hello ${author}, have a lovely day`
           : `Downvote article by ${author}`}
-      </button>
+      </Button>
     </>
   );
 };
