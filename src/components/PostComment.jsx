@@ -66,7 +66,9 @@ const PostComment = ({ setComments }) => {
       </>
     );
   } else {
-    return <p>Please sign-in to post a comment</p>;
+    return (
+      <p className="Sign-in_alert">Please sign-in to post/ delete a comment</p>
+    );
   }
 };
 

@@ -30,13 +30,17 @@ const DeleteComment = ({ comment, setComments }) => {
   if (user.username !== "" && comment.author === user.username) {
     return (
       <>
-        <Button onClick={handleClick}>Delete Comment</Button>
+        <Button onClick={handleClick}>
+          <span class="material-symbols-outlined">delete</span>Delete Comment
+        </Button>
       </>
     );
-  } else if (user.username === "") {
-    return <p>Please sign-in to delete a comment</p>;
   } else if (comment.author !== user.username) {
-    return <p>This comment was posted by {comment.author}</p>;
+    return (
+      <p className="Sign-in_alert">
+        This comment was posted by {comment.author}
+      </p>
+    );
   }
 };
 
