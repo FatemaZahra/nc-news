@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../context/User";
-import { Dropdown } from "react-bootstrap";
+import FilterDropDown from "./FilterDropDown";
 
 const Nav = () => {
   const { user } = useContext(UserContext);
@@ -26,48 +26,8 @@ const Nav = () => {
         person_filled<span className="hidden-mobile">Users</span>
       </Link>
       <p className="Nav">Signed in as: {user.username}</p>
-      <Dropdown>
-        <Dropdown.Toggle
-          variant="success"
-          id="dropdown-basic"
-          className="dropdown Nav"
-        >
-          <span class="material-symbols-outlined">filter_list</span>{" "}
-          <span className="hidden-mobile">Filter</span>
-        </Dropdown.Toggle>
-        <Dropdown.Menu>
-          <Dropdown.Item
-            href="/articles/sort_by/created_at"
-            className="dropdown-content Nav link"
-          >
-            By Date
-          </Dropdown.Item>
-          <Dropdown.Item
-            href="/articles/sort_by/comment_count"
-            className="dropdown-content Nav link"
-          >
-            By Comment Count
-          </Dropdown.Item>
-          <Dropdown.Item
-            href="/articles/sort_by/votes"
-            className="dropdown-content Nav link"
-          >
-            By Votes
-          </Dropdown.Item>
-          <Dropdown.Item
-            href="/articles/order/ASC"
-            className="dropdown-content Nav link"
-          >
-            In Ascending Order
-          </Dropdown.Item>
-          <Dropdown.Item
-            href="/articles/order/DESC"
-            className="dropdown-content Nav link"
-          >
-            In Descending Order
-          </Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
+
+      <FilterDropDown />
     </nav>
   );
 };
