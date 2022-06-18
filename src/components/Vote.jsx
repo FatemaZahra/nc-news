@@ -27,33 +27,38 @@ const Vote = ({ votes, article_id, author }) => {
   if (isError) {
     return <p>Can't vote, something wen't wrong!</p>;
   }
-
-  return (
-    <>
-      <p>Votes on article: {votes + voteChange}</p>
-      <Button
-        className="button"
-        onClick={handleClickUpVote}
-        disabled={voteChange > 0 || user.username === author}
-      >
-        <span className="material-symbols-outlined">thumb_up</span>
-        {user.username === author
-          ? `Hello ${author}, have a lovely day`
-          : `Upvote article by ${author}`}
-      </Button>
-      <Button
-        className="button"
-        onClick={handleClickDownVote}
-        disabled={
-          voteChange > 0 || user.username === author || votes + voteChange <= 0
-        }
-      >
-        <span className="material-symbols-outlined">thumb_down</span>
-        {user.username === author
-          ? `Hello ${author}, have a lovely day`
-          : `Downvote article by ${author}`}
-      </Button>
-    </>
-  );
+  if (user.username !== "") {
+    return (
+      <>
+        <p>Votes on article: {votes + voteChange}</p>
+        <Button
+          className="button"
+          onClick={handleClickUpVote}
+          disabled={voteChange > 0 || user.username === author}
+        >
+          <span className="material-symbols-outlined">thumb_up</span>
+          {user.username === author
+            ? `Hello ${author}, have a lovely day`
+            : `Upvote article by ${author}`}
+        </Button>
+        <Button
+          className="button"
+          onClick={handleClickDownVote}
+          disabled={
+            voteChange > 0 ||
+            user.username === author ||
+            votes + voteChange <= 0
+          }
+        >
+          <span className="material-symbols-outlined">thumb_down</span>
+          {user.username === author
+            ? `Hello ${author}, have a lovely day`
+            : `Downvote article by ${author}`}
+        </Button>
+      </>
+    );
+  } else {
+    return <p className="Sign-in_alert">Please sign-in to vote this article</p>;
+  }
 };
 export default Vote;

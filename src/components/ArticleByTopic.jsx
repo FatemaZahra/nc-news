@@ -8,7 +8,6 @@ const ArticleByTopic = () => {
   const [currentArticles, setCurrentArticles] = useState([{}]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setError] = useState(null);
-  console.log(currentArticles);
 
   useEffect(() => {
     getArticles(topic)

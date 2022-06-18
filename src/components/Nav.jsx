@@ -23,9 +23,11 @@ const Nav = () => {
         <span className="hidden-mobile">Cooking</span>
       </Link>
       <Link to={`/users`} className="Nav material-symbols-outlined">
-        person_filled<span className="hidden-mobile">Users</span>
+        person_filled
+        <p className="Nav">
+          {user.username === "" ? `Sign In` : `Logged in as: ${user.username}`}
+        </p>
       </Link>
-      <p className="Nav">Signed in as: {user.username}</p>
 
       <FilterDropDown />
     </nav>

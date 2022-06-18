@@ -33,8 +33,14 @@ const Users = () => {
       {users.map((user) => {
         return (
           <li className="userCard" key={user.username}>
-            <h2>{user.username}</h2>
+            <h2>{user.name}</h2>
+            <p> @{user.username}</p>
 
+            <img
+              src={user.avatar_url}
+              alt={user.username}
+              className="avatar_url"
+            />
             <Button
               className="button"
               onClick={() => {

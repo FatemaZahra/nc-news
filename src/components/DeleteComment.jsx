@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { Button } from "@mui/material";
 import { deleteComment } from "../utils/api";
 import { UserContext } from "../context/User";
+import { confetti } from "party-js";
 
 const DeleteComment = ({ comment, setComments }) => {
   const { user } = useContext(UserContext);
@@ -30,7 +31,13 @@ const DeleteComment = ({ comment, setComments }) => {
   if (user.username !== "" && comment.author === user.username) {
     return (
       <>
-        <Button onClick={handleClick}>
+        <Button
+          onClick={(event) => {
+            confetti(event.target);
+
+            handleClick();
+          }}
+        >
           <span class="material-symbols-outlined">delete</span>Delete Comment
         </Button>
       </>
