@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 import { ArticleContext } from "../context/Article";
 import { useContext } from "react";
+import ReadMore from "./ReadMore";
 
 const ArticleCard = ({ article }) => {
   const { setArticle } = useContext(ArticleContext);
@@ -17,9 +18,11 @@ const ArticleCard = ({ article }) => {
         <time className="date">{article.created_at.slice(0, 10)}, </time>
         <time className="date">{article.created_at.slice(11, 16)}</time>
       </span>
-      <p>{article.body}</p>
-      <h5>Comment count:{article.comment_count}</h5>
-      <h5>Vote count:{article.votes}</h5>
+      <p>
+        <ReadMore>{article.body}</ReadMore>
+      </p>
+      <h5>💬 {article.comment_count} comments</h5>
+      <h5>👍 {article.votes} votes </h5>
       <Link to={`/articles/${article.article_id}`} className="link">
         <Button
           className="button"

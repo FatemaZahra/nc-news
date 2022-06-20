@@ -34,13 +34,13 @@ const Users = () => {
         return (
           <li className="userCard" key={user.username}>
             <h2>{user.name}</h2>
-            <p> @{user.username}</p>
 
             <img
               src={user.avatar_url}
               alt={user.username}
               className="avatar_url"
             />
+            <p className="Sign-in_alert"> @{user.username}</p>
             <Button
               className="button"
               onClick={() => {

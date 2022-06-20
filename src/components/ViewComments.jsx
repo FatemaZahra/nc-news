@@ -31,7 +31,7 @@ const ViewComments = ({ article }) => {
   return (
     <>
       <ul>
-        <Button onClick={handleSubmit}>
+        <Button className="button" onClick={handleSubmit}>
           <span className="material-symbols-outlined" id="comment">
             comment
           </span>

@@ -33,7 +33,7 @@ const ArticleByTopic = () => {
   }
   return (
     <>
-      <ul>
+      <ul className="articles">
         {currentArticles.map((article) => {
           return (
             <div key={article.article_id}>

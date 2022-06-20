@@ -33,9 +33,7 @@ const ArticleByArticleId = () => {
   }
   return (
     <>
-      <h1>
-        <ArticleCardByArticleId currentArticle={currentArticle} />
-      </h1>
+      <ArticleCardByArticleId currentArticle={currentArticle} />
     </>
   );
 };

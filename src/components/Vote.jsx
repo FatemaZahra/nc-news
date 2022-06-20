@@ -30,7 +30,7 @@ const Vote = ({ votes, article_id, author }) => {
   if (user.username !== "") {
     return (
       <>
-        <p>Votes on article: {votes + voteChange}</p>
+        <p> 👍 {votes + voteChange} votes </p>
         <Button
           className="button"
           onClick={handleClickUpVote}
